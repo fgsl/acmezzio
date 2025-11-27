@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Instala MySQL e drivers
-      run: apt install mysql-server mysql-client php-mysql -y
+      run: sudo apt install mysql-server mysql-client php-mysql -y
 
     - name: Instala dependências
       run: composer install
