@@ -42,7 +42,7 @@ jobs:
       run: echo "<?php return ['db' => ['username'=>'root','password'=>'admin']];" > config/autoload/acme.local.php && cat config/autoload/acme.local.php
 
     - name: Cria arquivo de teste de conexão com o banco de dados
-      run: echo "<?php $conn = new mysqli('localhost', 'root', 'admin', 'acmezzio'); if ($conn->connect_error) { echo 'falha';} else { echo 'sucesso';}" > dbtest.php
+      run: echo "<?php\n$conn = new mysqli('localhost', 'root', 'admin', 'acmezzio');\nif ($conn->connect_error) { echo 'falha';} else { echo 'sucesso';}" > dbtest.php
       
     - name: Executa o teste de conexão com o banco de dados
       run: php dbtest.php
