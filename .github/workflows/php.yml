@@ -20,6 +20,12 @@ jobs:
     - name: Instala MySQL e drivers
       run: sudo apt install mysql-server mysql-client php-mysql -y
 
+    - name: Inicia o MySQL server
+      run: sudo service mysql start      
+ 
+    - name: Cria o banco de dados
+      run: mysql -u root -p < data\acmezzio.sql
+
     - name: Instala dependências
       run: composer install
 
