@@ -27,7 +27,7 @@ jobs:
       run: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin';" > mysql-init
 
     - name: Altera a senha do usuário root
-      run: mysqld --init-file=/home/me/mysql-init &
+      run: sudo mysqld --init-file=/home/me/mysql-init &
 
     - name: Pára o MySQL server
       run: sudo service mysql stop   
