@@ -38,6 +38,9 @@ jobs:
     - name: Cria o banco de dados
       run: sudo mysql -u root -padmin < data/acmezzio.sql
 
+    - name: Cria o arquivo local de conexão com o banco de dados 
+      run: echo "<?php return ['db' => ['username'=>'root','password'=>'admin']];" > config/autoload/acme.local.php
+
     - name: Instala dependências
       run: composer install
 
