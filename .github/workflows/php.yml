@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Instala MariaDB e drivers
-      run:  sudo apt install mariadb-server mariadb-client -y
+      run:  sudo apt install mariadb-server mariadb-client php-mysql -y
       
     - name: Pára o MariaDB server
       run: sudo service mariadb stop
