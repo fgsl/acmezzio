@@ -20,7 +20,11 @@ jobs:
     - name: Instala dependências
       run: composer install
 
+    - name: Inicia o servidor web
+      run: php -S localhost:8000 -t public &
+
     - name: Executa os testes
-      run: php -S localhost:8000 -t public && vendor/bin/phpunit
+      run: vendor/bin/phpunit
+      
       
 
