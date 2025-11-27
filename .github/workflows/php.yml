@@ -36,7 +36,7 @@ jobs:
       run: sudo service mariadb start
  
     - name: Cria o banco de dados
-      run: mysql -u root -p "admin" < data/acmezzio.sql
+      run: mysql -u root -padmin < data/acmezzio.sql
 
     - name: Instala dependências
       run: composer install
