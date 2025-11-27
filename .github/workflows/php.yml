@@ -24,7 +24,7 @@ jobs:
       run: sudo service mariadb stop
 
     - name: Cria um arquivo com a senha do administrador do banco
-      run: echo "use mysql;update user set password=PASSWORD('admin') where User='root';flush privileges;" > mysql-init && cat mysql-init
+      run: echo "use mysql;SET PASSWORD FOR 'root'@'localhost' = PASSWORD('admin');flush privileges;" > mysql-init && cat mysql-init
 
     - name: Inicia o MariaDB com modo safe
       run: sudo mysqld_safe --skip-grant-tables &
