@@ -24,7 +24,7 @@ jobs:
       run: sudo service mysql start      
  
     - name: Cria o banco de dados
-      run: mysql -u root -p < data\acmezzio.sql
+      run: mysql -u root -p < data/acmezzio.sql
 
     - name: Instala dependências
       run: composer install
