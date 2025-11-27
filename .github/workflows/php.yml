@@ -21,7 +21,7 @@ jobs:
       run:  sudo apt install mariadb-server mariadb-client -y
       
     - name: Pára o MariaDB server
-      run: sudo /etc/init.d/mysql stop
+      run: sudo service mariadb stop
 
     - name: Cria um arquivo com a senha do administrador do banco
       run: echo "ALTER USER root@'%' IDENTIFIED VIA mysql_native_password USING PASSWORD(\"admin\");FLUSH PRIVILEGES;" > mysql-init
@@ -30,13 +30,13 @@ jobs:
       run: sudo mysqld_safe --init-file=mysql-init &
 
     - name: Pára o MariaDB server
-      run: sudo service mysql stop   
+      run: sudo service mariadb stop
 
     - name: Inicia o MariaDB server
-      run: sudo service mysql start      
+      run: sudo service mariadb start
  
     - name: Cria o banco de dados
-      run: mysql -u root < data/acmezzio.sql
+      run: mysql -u root -p "admin" < data/acmezzio.sql
 
     - name: Instala dependências
       run: composer install
