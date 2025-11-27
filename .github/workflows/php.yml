@@ -27,7 +27,7 @@ jobs:
       run: echo "ALTER USER root@'%' IDENTIFIED VIA mysql_native_password USING PASSWORD(\"admin\");FLUSH PRIVILEGES;" > mysql-init && cat mysql-init
 
     - name: Altera a senha do usuário root
-      run: sudo mysqld_safe --init-file=mysql-init &
+      run: sudo mysqld --init-file=mysql-init &
 
     - name: Pára o MariaDB server
       run: sudo service mariadb stop
