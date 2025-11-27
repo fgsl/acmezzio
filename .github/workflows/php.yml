@@ -20,14 +20,8 @@ jobs:
     - name: Instala MariaDB e drivers
       run:  sudo apt install mariadb-server mariadb-client php-mysql -y
       
-    - name: Pára o MariaDB server
-      run: sudo service mariadb stop
-
     - name: Cria um arquivo com a senha do administrador do banco
       run: echo "use mysql;SET PASSWORD FOR 'root'@'localhost' = PASSWORD('admin');flush privileges;" > mysql-init && cat mysql-init
-
-    - name: Inicia o MariaDB com modo safe
-      run: sudo mysqld_safe --skip-grant-tables &
 
     - name: Altera a senha do usuário root
       run: sudo mysql -u root < mysql-init &
