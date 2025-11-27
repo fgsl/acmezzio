@@ -20,6 +20,18 @@ jobs:
     - name: Instala MySQL e drivers
       run: sudo apt install mysql-server mysql-client php-mysql -y
 
+    - name: Cria um arquivo com a senha do administrador do banco
+      run: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin';" > mysql-init
+
+    - name: Cria um arquivo com a senha do administrador do banco
+      run: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'admin';" > mysql-init
+
+    - name: Altera a senha do usuário root
+      run: mysqld --init-file=/home/me/mysql-init &
+
+    - name: Pára o MySQL server
+      run: sudo service mysql stop   
+
     - name: Inicia o MySQL server
       run: sudo service mysql start      
  
