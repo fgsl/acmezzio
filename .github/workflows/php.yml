@@ -23,7 +23,7 @@ jobs:
     - name: Inicia o MySQL server
       run: sudo service mysql start      
 
-   - name: Lista conteúdo de data
+    - name: Lista conteúdo de data
       run: ls -la data
  
     - name: Cria o banco de dados
